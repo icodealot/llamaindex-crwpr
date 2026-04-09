@@ -1,0 +1,4 @@
+llama-index-core
+llama-index-readers-web
+playwright
+beautifulsoup4
