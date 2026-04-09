@@ -11,7 +11,7 @@ This Python module was created fit for a specific purpose and offers the followi
 
 - A customizable `page_sleep` value
 - A `load_data` method that accepts a list of URLs
-- A callback to receive debug messages from the Chromium browsser used by playwright (useful for debugging)
+- A callback to receive debug messages from the Chromium browser used by playwright (useful for debugging)
 - Formats text through BeautifulSoup to cleanup oddities
 
 **How-to**:
