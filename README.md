@@ -22,6 +22,12 @@ This Python module was created fit for a specific purpose and offers the followi
 
 2. Make sure the requirements of your project are updated to minimally include those in `crwpr/requirements.txt` (`pip install` them, etc.)
 
+3. This reader relies on Playwright with Chromium so after you `pip install playwright`, install Chromium. For example:
+
+```bash
+playwright install chromium
+```
+
 3. Import the `CustomReadabilityWebPageReader` in your project and use it.
 
 **Example with Page Sleep loading a single URL**:
