@@ -74,6 +74,7 @@ Note, all other `ReadabilityWebPageReader` parameters apply. View the source in 
 
 There are a few differences in this implementation from the original.
 
-1. This one uses BeautifulSoup to cleanup the text returned.
+1. This one uses BeautifulSoup to cleanup the text returned
 2. The `load_data` method accepts a list instead of a single URL
 3. Internally the use of `asyncio` is slightly different to work with Python 3.14+
+4. ValueErrors are raised when Readability fails to extract content
