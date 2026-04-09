@@ -45,7 +45,7 @@ class CustomReadabilityWebPageReader(BaseReader):
         ] = "domcontentloaded",
         text_splitter: Optional[TextSplitter] = None,
         normalize: Optional[Callable[[str], str]] = nfkc_normalize,
-        page_sleep: Optional[int] = 0
+        page_sleep: Optional[int] = 0,
         debug_callback: Optional[Callable[[str], None]] = None,
     ) -> None:
         self._launch_options = {
@@ -182,6 +182,9 @@ class CustomReadabilityWebPageReader(BaseReader):
         """)
 
         await page.close()
+
+        if r is None:
+            raise ValueError(f"readability returned no content for: {url}")
 
         r["textContent"] = BeautifulSoup(r["content"], "html.parser").get_text(separator=" ", strip=True)
 

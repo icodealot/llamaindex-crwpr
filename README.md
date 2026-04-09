@@ -24,12 +24,16 @@ This Python module was created fit for a specific purpose and offers the followi
 
 3. Import the `CustomReadabilityWebPageReader` in your project and use it.
 
-**Example with Page Sleep**:
+**Example with Page Sleep loading a single URL**:
 
 ```python
 from crwpr import CustomReadabilityWebPageReader
 
-documents = CustomReadabilityWebPageReader(wait_until="domcontentloaded", page_sleep=4000).load_data(urls=[url])
+url = "https://..."
+
+documents = CustomReadabilityWebPageReader(
+    page_sleep=4000,
+).load_data(urls=[url])
 ```
 
 **Example with Debugging Output**:
@@ -37,15 +41,25 @@ documents = CustomReadabilityWebPageReader(wait_until="domcontentloaded", page_s
 ```python
 from crwpr import CustomReadabilityWebPageReader
 
-def debug_callback(msg=None):
-    if msg is not None:
-        print(msg)
+urls = [ "https://...", ...]
 
 documents = CustomReadabilityWebPageReader(
-    wait_until="domcontentloaded", 
+    debug_callback=lambda msg: print(msg),
+).load_data(urls=urls)
+```
+
+**Example with multiple options defined**:
+
+```python
+from crwpr import CustomReadabilityWebPageReader
+
+urls = [ "https://...", ...]
+
+documents = CustomReadabilityWebPageReader(
+    wait_until="domcontentloaded",
     page_sleep=4000,
-    debug_callback=debug_callback,
-).load_data(urls=[url])
+    debug_callback=lambda msg: print(msg),
+).load_data(urls=urls])
 ```
 
 Note, all other `ReadabilityWebPageReader` parameters apply. View the source in `base.py` if you have any doubts. It is a small file so don't be shy!
