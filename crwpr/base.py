@@ -83,10 +83,6 @@ class CustomReadabilityWebPageReader(BaseReader):
                 browser,
                 url,
             )
-
-            if article is None:
-                raise ValueError(f"unable to read content from {url}")
-                return []
             
             extra_info = {
                 key: article[key]
